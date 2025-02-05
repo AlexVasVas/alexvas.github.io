@@ -199,20 +199,18 @@ function elisc_tm_experience_popup(){
 	
 	button.on('click',function(){
 		var element = jQuery(this);
-		console.log(element);
 		var parent	= element.closest('.elisc_tm_experience .list ul li');
-		var elImage	= parent.find('.popup_image').attr('src');
-		var elImage2	= parent.find('.popup_image2').attr('src');
-		var elImage3	= parent.find('.popup_image3').attr('src');
-		var elImage4	= parent.find('.popup_image4').attr('src');
-		console.log(elImage);
-		var elText	= parent.find('.popup_image').attr('data-image-text');
-		var elText2	= parent.find('.popup_image2').attr('data-image-text');
-		var elText3	= parent.find('.popup_image3').attr('data-image-text');
-		var elText4	= parent.find('.popup_image4').attr('data-image-text');
-		var elImage2dom = typeof elImage2 !== 'undefined' ? '<div><img class="grid-item grid-item-3" src="' + elImage2 + '" alt=""><p>' + elText2 + '</p></div>' : '';
-		var elImage3dom = typeof elImage3 !== 'undefined' ? '<div><img class="grid-item grid-item-2" src="' + elImage3 + '" alt=""><p>' + elText3 + '</p></div>' : '';
-		var elImage4dom = typeof elImage4 !== 'undefined' ? '<div><img class="grid-item grid-item-4" src="' + elImage4 + '" alt=""><p>' + elText4 + '</p></div>' : '';
+		let elImagesDom = '';
+		const elImages = parent[0].querySelectorAll('.popup_image');
+		for(let i = 1; i <= elImages.length; i++) {
+			let elImageSrc = elImages[i - 1].src;
+			if(i === 1) { 
+				elImagesDom += `<input type="radio" id="c1" name="ts" checked="checked" onchange="reorder(this);"><label class="t" for="c1" style="--w: 100%; --l: 0;"><img src="` + elImageSrc + '"></label>';
+			} else {
+				const imageMultiplier = Math.floor(100 / (elImages.length - 1));
+				elImagesDom += `<input type="radio" id="c` + i + `" name="ts" onchange="reorder(this);"><label class="t" for="c` + i + `" style="--w: ` + imageMultiplier + `%; --l: ` + ((i - 2) * imageMultiplier) + `%;"><img src="` + elImageSrc + '"></label>';
+			}
+		}
 		var year	= parent.find('.job span').text().slice(1);
 		var job		= parent.find('.job h3').text();
 		var place 	= parent.find('.place span').text().slice(1);
@@ -229,21 +227,11 @@ function elisc_tm_experience_popup(){
 			` + elImage3dom + `
 			` + elImage4dom + `
 		</div>`);*/
-		console.log(elImage4);
 		modalBox.find('.descriptions').prepend(`
 		<div class="modal-container">
 			<div class="w">
 				<div class="ts">
-					<input type="radio" id="c1" name="ts" checked="checked" onchange="reorder(this);">
-					<label class="t" for="c1" style="--w: 100%; --l: 0;"><img src="` + elImage + `"></label>
-					<input type="radio" id="c2" name="ts" onchange="reorder(this);">
-					<label class="t" for="c2" style="--w: 25%; --l: 0%;"><img src="` + elImage2 + `"></label>
-					<input type="radio" id="c3" name="ts" onchange="reorder(this);">
-					<label class="t" for="c3" style="--w: 25%; --l: 25%;"><img src="` + elImage3 + `"></label>
-					<input type="radio" id="c4" name="ts" onchange="reorder(this);">
-					<label class="t" for="c4" style="--w: 25%; --l: 50%;"><img src="` + elImage4 + `"></label>
-					<input type="radio" id="c5" name="ts" onchange="reorder(this);">
-					<label class="t" for="c5" style="--w: 25%; --l: 75%;"><img src="https://images.unsplash.com/photo-1537886464786-8a0d500b0da6?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=49984d393482456ea5484c3482cc52a9&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=60"></label>
+					` + elImagesDom + `
 				</div>
 			</div>
 		</div>`);

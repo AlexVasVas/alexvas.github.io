@@ -6,8 +6,8 @@
 }
 
 .w {
-  width:50vmin;
-  height:80vmin;
+  width:75vmin;
+  height:100vmin;
 }
 
 .ts {
@@ -35,7 +35,7 @@
 
 :checked + label.t {
   left:0; bottom:var(--barH);
-  height:calc(100% - var(--barH));
+  height:calc(60% - var(--barH));
 }
 
 :checked + label.t img {
