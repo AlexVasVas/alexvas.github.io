@@ -5,6 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 
 <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<style>
  .grid-container {
@@ -66,7 +67,86 @@
 	 font-style: italic;
 }
  
-	</style>
+ .descriptions .short {
+	width: 100%;
+	float: left;
+	display: flex;
+	justify-content: space-between;
+	font-weight: 500;
+ }
+ .descriptions .place {
+	text-transform: uppercase;
+ }
+  .descriptions .badges {
+	margin-bottom: 16px;
+ }
+ .descriptions .badges span {
+    background-color: var(--yellow-color);
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+	margin-right: .2em;
+ }
+</style>
+
+<style>
+	body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: #f4f4f4;
+	}
+
+	.carousel {
+	position: relative;
+	max-width: 600px;
+	margin: 50px auto;
+	overflow: hidden;
+	margin-bottom: 0px;
+	}
+
+	.carousel-track {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+	margin-bottom: 20px;
+	}
+
+	.carousel-item {
+	min-width: 100%;
+	max-height: 400px;
+	}
+
+	.carousel-item img {
+	object-fit: contain;
+	height: 100%;
+    margin: auto;
+	display: block;
+	}
+
+	.prev, .next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+	border: none;
+	font-size: 2rem;
+	padding: 10px;
+	cursor: pointer;
+	z-index: 10;
+	}
+
+	.prev { left: 10px; }
+	.next { right: 10px; }
+
+</style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -84,7 +164,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/plugins.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/modal-styling.css" />
+<link rel="stylesheet" type="text/css" href="css/image-popup.css" />
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
@@ -111,7 +191,7 @@
 				<div class="topbar_inner">
 					<div class="logo" data-type="image"> <!-- You can use text or image as logo. data-type values are: "image" and "text"  -->
 						<a class="image" href="#"><img src="img/logo/logo.png" alt="" /></a>
-						<a class="text" href="#"><span>R.Elisc</span></a>
+						<a class="text" href="#"><span>A.Vasilev</span></a>
 					</div>
 					<div class="trigger">
 						<div class="hamburger hamburger--slider">
@@ -132,8 +212,9 @@
 							<ul class="anchor_nav">
 								<li class="current"><a href="#home">Home</a></li>
 								<li><a href="#about">About</a></li>
-								<li><a href="#experience">Services</a></li>
+								<li><a href="#service">Services</a></li>
 								<li><a href="#portfolio">Portfolio</a></li>
+								<li><a href="#news">Blog</a></li>
 								<li><a href="#contact">Contact</a></li>
 							</ul>
 						</div>
@@ -147,7 +228,7 @@
 							</ul>
 						</div>
 						<div class="copyright">
-							<p>Copyright &copy; 2023</p>
+							<p>Copyright &copy; 2025</p>
 						</div>
 					</div>
 				</div>
@@ -171,8 +252,9 @@
 						<ul class="anchor_nav">
 							<li class="current"><a href="#home">Home</a></li>
 							<li><a href="#about">About</a></li>
-							<li><a href="#experience">Experience</a></li>
+							<li><a href="#service">Services</a></li>
 							<li><a href="#portfolio">Portfolio</a></li>
+							<li><a href="#news">Blog</a></li>
 							<li><a href="#contact">Contact</a></li>
 						</ul>
 					</div>
@@ -184,7 +266,8 @@
 							</ul>
 						</div>
 						<div class="text">
-							<p>Copyright © 2024 Aleks Vasilev. All rights reserved.</p>
+							<p>© 2025 Aleks Vasilev.</p>
+							<p>All rights reserved.</p>
 						</div>
 					</div>
 				</div>
@@ -202,20 +285,20 @@
 								<div class="details">
 									<div class="left">
 										<div class="title">
-											<h3>Hi, I'm <span class="blueColor">Aleks!</span></h3>
+											<h3>Hi, I'm <span>Aleks!</span></h3>
 											<h3>
 												<span class="cd-headline rotate-1"> <!-- ANIMATE TEXT VALUES: zoom, rotate-1, letters type, letters rotate-2, loading-bar, slide, clip, letters rotate-3, letters scale, push,  -->
-													<span class="blc">Game Developer &</span>
+													<span class="blc">Full-Stack Developer &</span>
 													<span class="cd-words-wrapper">
-													  <b class="is-visible">Full-Stack Developer</b>
-													  <b>Web Designer</b>
+													  <b class="is-visible">Web Designer</b>
+													  <b>Game Developer</b>
 													</span>
 												</span>
 											</h3>
 											<h3>Based in Sofia</h3>
 										</div>
 										<div class="subtitle">
-											<p>I'm a developer based in Sofia with <span class="blueColor">3+ years</span> of experience in game development and <span class="blueColor">7+ years</span> of professional experience as a web developer and designer.</p>
+											<p>I'm a developer based in Sofia with <span class="blueColor">7+ years</span> of professional experience as a web developer and designer and <span class="blueColor">3+ years</span> of experience in game development.</p>
 										</div>
 										<div class="buttons">
 											<div class="elisc_tm_button">
@@ -228,7 +311,7 @@
 										<div class="info">
 											<ul>
 												<li><a href="tel:+359 87 773 48 46">+359 87 773 48 46</a></li>
-												<li><a href="mailto:aleks.vasilev@abv.bg">aleks.vasilev@abv.bg</a></li>
+												<li><a href="mailto:aleks.vasilev@abv.bg">qrakupi1@gmail.com</a></li>
 												<li><a class="href_location" href="#">Sofia, Bulgaria</a></li>
 											</ul>
 										</div>
@@ -255,28 +338,28 @@
 											<h3 class="name">Aleks Vasilev</h3>
 											<span class="job">
 												<span class="cd-headline rotate-1"> <!-- ANIMATE TEXT VALUES: zoom, rotate-1, letters type, letters rotate-2, loading-bar, slide, clip, letters rotate-3, letters scale, push,  -->
-													<span class="blc">Game developer &amp;</span>
+													<span class="blc">Full-stack developer &amp;</span>
 													<span class="cd-words-wrapper">
-													  <b class="is-visible">Full-stack developer</b>
-													  <b>Web Designer</b>
+													  <b class="is-visible">Web Designer</b>
+													  <b>Game developer</b>
 													</span>
 												</span>
 											</span>
 										</div>
 										<div class="elisc_tm_button">
-											<a class="anchor" href="#contact">Get in touch</a>
+											<a class="anchor" href="#portfolio">Get in touch</a>
 										</div>
 									</div>
 									<div class="right">
 										<div class="text">
-											<p>Hello there! My name is <span class="yellowColor">Aleks Vasilev</span>. I'm a developer who is very passionate and dedicated to his work.</p>
-											<p>With 3 years of experience as a game developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step of the work process, from discussion and collaboration to planning and developing.</p>
+											<p>Hello there! My name is <span class="yellowColor">Aleks</span>. I'm a developer who is very passionate and dedicated to his work.</p>
+											<p>With 7 years of experience as a full-stack developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step of the work process, from discussion and collaboration to planning and developing.</p>
 										</div>
 										<div class="info">
 											<ul>
 												<li>
 													<span>Age</span>
-													<span>27</span>
+													<span>28</span>
 												</li>
 												<li>
 													<span>Born In</span>
@@ -284,7 +367,7 @@
 												</li>
 												<li>
 													<span>Mail</span>
-													<span><a href="mailto:support@elisc.com">aleks.vasilev@abv.bg</a></span>
+													<span><a href="mailto:qrakupi1@gmail.com">qrakupi1@gmail.com</a></span>
 												</li>
 												<li>
 													<span>Phone</span>
@@ -304,20 +387,20 @@
 										</li>
 										<li>
 											<div class="list_inner">
-												<h3>10+</h3>
+												<h3>7+</h3>
 												<span>Projects Completed</span>
 											</div>
 										</li>
 										<li>
 											<div class="list_inner">
-												<h3>100+</h3>
+												<h3>1000+</h3>
 												<span>Happy Clients</span>
 											</div>
 										</li>
 									</ul>
 								</div>
 							</div>
-							<div class="elisc_tm_experience" id="experience" style="padding: 0;">
+							<div class="elisc_tm_experience" style="padding: 0;">
 								<img class="experience-transition" src="img/experience/transition-first.svg">
 								<div class="tm_content web-developer-container">
 									<div class="elisc_tm_title">
@@ -327,11 +410,10 @@
 									<div class="list web-developer-list">
 										<ul>
 											<li>
-												<img class="popup_image" src="img/experience/1.jpg" alt="" />
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
-															<span class="yellowColor">Apr 2020 - Present · 4+ yrs</span>
+															<span class="yellowColor">-Apr 2020 - Feb 2025 · 4+ yrs</span>
 															<h3>Full-Stack Developer</h3>
 														</div>
 														<div class="place">
@@ -346,9 +428,52 @@
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
-															<p>Developed multiple modules for OpenCard and Shopify.</p>
-															<p>Worked as a technical support of the modules, delivering hundreds of 5 star reviews and even more satisfied customers.</p>
-															<p>Guiding and teching multiple junior colleagues, and leading them in multiple different projects.</p>
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Full-Stack Developer</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/isns-1.png" alt="Dashboard" data-image-text="Dashboard" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/isns-2.png" alt="Analytics" data-image-text="Analytics" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/isns-3.png" alt="Design" data-image-text="Design" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/isns-4.png" alt="Geolocation" data-image-text="Geolocation" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/isns-5.png" alt="Integrations" data-image-text="Integrations" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="short">
+																<div class="job">
+																	<span class="yellowColor">-Apr 2020 - Feb 2025 · 4+ years</span>
+																</div>
+																<div class="place">
+																	<span>-ISenseLabs</span>
+																</div>
+															</div>
+															<div class="badges">
+																<span>React</span>
+																<span>CakePHP</span>
+																<span>MySQL</span>
+																<span>GraphQL</span>
+																<span>Docker</span>
+															</div>
+															<p>Developed multiple modules for OpenCard and Shopify using React, CakePHP and MySQL, as well as Shopify's API, Polaris, Hydrogen and GraphQL. Worked as a technical support of the modules, delivering hundreds of 5 star reviews from satisfied customers. Manage multiple third party pixels for ads analytics and management platforms like Google Ads, Google Analytics, Facebook Pixel, Google Tag Manager and more. Guide and teach multiple junior colleagues, and lead them in multiple different projects.</p>
 														</div>
 													</div>
 													<!-- /Modalbox Info Start -->
@@ -357,13 +482,13 @@
 											</li>
 											<li>
 												<img class="popup_image" src="img/thumbs/rq-1.png" alt="" style="display:none" data-image-text="Home page" />
-												<img class="popup_image" src="img/thumbs/rq-2.png" alt="" style="display:none" data-image-text="Company page" />
-												<img class="popup_image" src="img/thumbs/rq-3.png" alt="" style="display:none" data-image-text="Review page" />
-												<img class="popup_image" src="img/thumbs/rq-4.png" alt="" style="display:none" data-image-text="Registration page" />
+												<img class="popup_image2" src="img/thumbs/rq-2.png" alt="" style="display:none" data-image-text="Company page" />
+												<img class="popup_image3" src="img/thumbs/rq-3.png" alt="" style="display:none" data-image-text="Review page" />
+												<img class="popup_image4" src="img/thumbs/rq-4.png" alt="" style="display:none" data-image-text="Registration page" />
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
-															<span class="yellowColor">Nov 2018 - Jan 2020 · 1+ yr</span>
+															<span class="yellowColor">-Nov 2018 - Jan 2020 · 1+ yr</span>
 															<h3>Full-Stack Developer</h3>
 														</div>
 														<div class="place">
@@ -371,20 +496,57 @@
 														</div>
 													</div>
 													<div class="text">
-														<p>A full-stack developer at Digital Software Solutions, a company that provides software development services.</p>
+														<p>A full-stack developer at a company that provides software development services.</p>
 													</div>
 													<a class="elisc_tm_full_link" href="#"></a>
 
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
-															<div class="description_container">
-																<span>Digital Software Solutions</span>
-																<span class="job_date yellowColor">Nov 2018 - Jan 2020 · 1+ yr</span>
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Full-Stack Developer</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/rq-1.png" alt="Home page" data-image-text="Home page" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/rq-2.png" alt="Company page" data-image-text="Company page" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/rq-3.png" alt="Review page" data-image-text="Review page" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/rq-4.png" alt="Sign up page" data-image-text="Sign up page" />
+																		</div>
+																	</div>
+																</div>
 															</div>
-															<p>Worked on projects for a Bulgarian ministry using Angular(6-7) with angularMaterial or primeNg(primeFaces) for the frontend, while on the backend mainly used NodeJS, with Mysql as DB.</p>
-															<p>Learned how to teach and guide new interns.</p>
-															<p>Developed unit tests using the testing framework - Mocha in a combination with the assertion library - Chai.</p>
+															<div class="short">
+																<div class="job">
+																	<span class="yellowColor">-Nov 2018 - Jan 2020 · 1+ year</span>
+																</div>
+																<div class="place">
+																	<span>-Digital Software Solutions</span>
+																</div>
+															</div>
+															<div class="badges">
+																<span>Angular</span>
+																<span>AngularMaterial</span>
+																<span>PrimeNG</span>
+																<span>NodeJS</span>
+																<span>MySQL</span>
+																<span>Mocha</span>
+															</div>
+															<p>Worked on projects for a Bulgarian ministry using Angular(6-7) with angularMaterial or primeNg(primeFaces) for the frontend, while on the backend mainly used NodeJS with Mysql as DB. Learned how to teach and guide new interns. Developed unit tests using the testing framework - Mocha in a combination with the assertion library - Chai.</p>
 														</div>
 													</div>
 													<!-- /Modalbox Info Start -->
@@ -392,13 +554,13 @@
 												</div>
 											</li>
 											<li style="margin: 0;">
-												<img class="popup_image" src="img/thumbs/toh-2.png" alt="" style="display:none" data-image-text="Payment page" />
-												<img class="popup_image" src="img/thumbs/toh-3.png" alt="" style="display:none" data-image-text="Admin panel" />
-												<img class="popup_image" src="img/thumbs/toh-1.png" alt="" style="display:none" data-image-text="Home page" />
+												<!--<img class="popup_image" src="img/thumbs/toh-2.png" alt="" style="display:none" data-image-text="Payment page" />
+												<img class="popup_image2" src="img/thumbs/toh-3.png" alt="" style="display:none" data-image-text="Admin panel" />
+												<img class="popup_image3" src="img/thumbs/toh-1.png" alt="" style="display:none" data-image-text="Home page" />-->
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
-															<span class="yellowColor">Mar 2018 - Oct 2018 · 8 mos</span>
+															<span class="yellowColor">-Mar 2018 - Oct 2018 · 8 mos</span>
 															<h3>Full-Stack Developer</h3>
 														</div>
 														<div class="place">
@@ -413,8 +575,46 @@
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
-															<p>Worked as a freelance full-stack developer creating multiple websites.</p>
-															<p>My work mainly consists of using VueJS, SASS and TailWind for the frontend, and PHP with MySQL for the backend.</p>
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Full-Stack Developer</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/toh-2.png" alt="Payment page" data-image-text="Payment page" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/toh-3.png" alt="Admin panel" data-image-text="Admin panel" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/toh-1.png" alt="Home page" data-image-text="Home page" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="short">
+																<div class="job">
+																	<span class="yellowColor">-Mar 2018 - Oct 2018 · 8 months</span>
+																</div>
+																<div class="place">
+																	<span>-Oxeanic</span>
+																</div>
+															</div>
+															<div class="badges">
+																<span>VueJS</span>
+																<span>SASS</span>
+																<span>TailWind</span>
+																<span>PHP</span>
+																<span>MySQL</span>
+															</div>
+															<p>Worked as a freelance full-stack developer creating multiple websites. My work mainly consists of using VueJS, SASS and TailWind for the frontend, and PHP with MySQL for the backend.</p>
 														</div>
 													</div>
 													<!-- /Modalbox Info Start -->
@@ -422,12 +622,12 @@
 												</div>
 											</li>
 											<li style="margin: 0;">
-												<img class="popup_image" src="img/thumbs/atbs-1.png" alt="" style="display:none" data-image-text="First half of the Home page" />
-												<img class="popup_image" src="img/thumbs/atbs-2.png" alt="" style="display:none" data-image-text="Second half of the Home page" />
+												<!-- <img class="popup_image" src="img/thumbs/atbs-1.png" alt="" style="display:none" data-image-text="First half of the Home page" />
+												<img class="popup_image2" src="img/thumbs/atbs-2.png" alt="" style="display:none" data-image-text="Second half of the Home page" /> -->
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
-															<span class="yellowColor">Aug 2017 - Jan 2018 · 6 mos</span>
+															<span class="yellowColor">-Aug 2017 - Jan 2018 · 6 mos</span>
 															<h3>Web Developer</h3>
 														</div>
 														<div class="place">
@@ -442,12 +642,47 @@
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
-															<p>Went trough a study program and helped developing 2 websites that were developed for ministries.</p>
-															<p>The first 2 months I had a study program, which included learning HTML, CSS, JS and PHP.</p>
-															<p>After that I've mainly developed my skills in JQuery and Bootstrap making websites responsive and dynamic.</p>
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Web Developer</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/atbs-1.png" alt="First half of the Home page" data-image-text="First half of the Home page" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/atbs-2.png" alt="Second half of the Home page" data-image-text="Second half of the Home page" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="short">
+																<div class="job">
+																	<span class="yellowColor">-Aug 2017 - Jan 2018 · 6 months</span>
+																</div>
+																<div class="place">
+																	<span>-Information Services</span>
+																</div>
+															</div>
+															<div class="badges">
+																<span>JavaScript</span>
+																<span>jQuery</span>
+																<span>CSS</span>
+																<span>Bootstrap</span>
+																<span>PHP</span>
+															</div>
+															<p>Went trough a study program and helped developing 2 websites that were used by ministries. The first 2 months I had a study program, which included learning HTML, CSS, JS and PHP. After that I've mainly developed my skills in JQuery and Bootstrap making websites responsive and dynamic.</p>
 														</div>
 													</div>
 													<!-- /Modalbox Info Start -->
+
 												</div>
 											</li>
 										</ul>
@@ -456,12 +691,11 @@
 								<img class="experience-transition" src="img/experience/transition-second.svg">
 								<div class="tm_content graphic-design-container">
 									<div class="elisc_tm_title">
-										<h3>Graphic Design</h3>
+										<h2>Graphic Design</h3>
 									</div>
 									<div class="list graphic-design-list">
 										<ul>
 											<li style="margin: 0;">
-												<img class="popup_image" src="img/experience/1.jpg" alt="" />
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
@@ -476,17 +710,50 @@
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Game Design</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/game-design/shaders.png" alt="Unreal Engine shaders" data-image-text="Unreal Engine shaders" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/game-design/dog.png" alt="Dog keychain model" data-image-text="Dog keychain model"/>
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/game-design/cup-holder.png" alt="Cup holder model" data-image-text="Cup holder model" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/game-design/letters.png" alt="Decoration letters model" data-image-text="Decoration letters model" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/game-design/tv-channel.png" alt="Retro tv model" data-image-text="Retro tv model" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="badges">
+																<span>Blender</span>
+																<span>HLSL</span>
+															</div>
 															<p>In my journey as a game designer, I started with crafting immersive virtual environments through 3D modeling and shader development.</p>
 															<p>Using Unreal Engine's Material Editor and Unity's Shader Graph, I manipulating textures and lighting for a cohesive visual experience.</p>
-															<p>Im also familiar with HLSL, which helped me create custom shaders that enhance the visual graphic while optimizing performance.</p>
+															<p>Im also familiar with HSLS, which helped me create custom shaders that enhance the visual graphic while optimizing performance.</p>
+															<p>As a 3D modeling software I used Blender creating models for my games and for 3D printing.</p>
 														</div>
 													</div>
 													<!-- /Modalbox Info Start -->
-
 												</div>
 											</li>
 											<li style="margin: 0;">
-												<img class="popup_image" src="img/experience/2.jpg" alt="" />
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
@@ -501,17 +768,48 @@
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Web Design</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/toh-1.png" alt="Food website design" data-image-text="Food website design" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/isns-3.png" alt="Shopify app design" data-image-text="Shopify app design" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/web-design/construction-site.png" alt="Construction website design" data-image-text="Construction website design" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/atbs-2.png" alt="Finance website design" data-image-text="Finance website design" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="badges">
+																<span>CSS</span>
+																<span>Bootstrap</span>
+																<span>Polaris</span>
+																<span>Tailwind</span>
+															</div>
 															<p>Over my 5+ years of experience as a web developer ive had to style multiple websites using CSS, or CSS frameworks like Bootstrap, Tailwind, UIKit, Polaris, etc.</p>
-															<p>My knowledge also consists of structuring layouts, making responsive design, following styling guidelines, picking color palettes and themes, etc.</p>
+															<p>My knowledge also consists of structuring layouts, making responsive design, following styling guidelines, picking color palettes and themes.</p>
 															<p>Ive also had experience working with Photoshop in order to create custom backgrounds, logos or badges.</p>
 														</div>
 													</div>
 													<!-- /Modalbox Info Start -->
-
 												</div>
 											</li>
 											<li style="margin: 0;">
-												<img class="popup_image" src="img/experience/3.jpg" alt="" />
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
@@ -526,12 +824,47 @@
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
-															<p>In my experience as a graphic designer, I specialized in creating impactful logos, compelling price lists, and memorable business cards.</p>
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Graphic Design</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/graphic-design/muto-tv.jpg" alt="Video website logo" data-image-text="Video website logo" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/graphic-design/polys-vision.jpg" alt="Hair salon logo" data-image-text="Hair salon logo" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/graphic-design/labels.jpg" alt="Labels for products" data-image-text="Labels for products" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/graphic-design/petar62-logo.png" alt="Construction firm logo" data-image-text="Construction firm logo" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/graphic-design/polys-vision-price-list.jpg" alt="Hair salon logo" data-image-text="Hair salon logo" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/graphic-design/polys-vision-logo.jpg" alt="Price list" data-image-text="Price list" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="badges">
+																<span>Photoshop</span>
+															</div>
+															<p>In my experience as a graphic designer, I specialized in creating impactful logos, compelling price lists, and memorable business cards mainly with Photoshop.</p>
 															<p>With a focus on visual storytelling, I've crafted unique brand identities that resonate with clients and their audiences.</p>
 														</div>
 													</div>
 													<!-- /Modalbox Info Start -->
-
 												</div>
 											</li>
 										</ul>
@@ -540,15 +873,15 @@
 								<img class="experience-transition" src="img/experience/transition-third.svg">
 								<div class="tm_content game-developer-container">
 									<div class="elisc_tm_title">
-										<h3>Game Development</h3>
+										<h2>Game Development</h3>
 									</div>
 									<div class="list game-developer-list">
 										<ul>
 											<li style="margin: 0;">
-												<img class="popup_image" src="img/experience/2.jpg" alt="" />
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
+															<!-- <span class="yellowColor">-Feb 2022 - Present · 2+ yrs</span> -->
 															<h3>Game Developer</h3>
 														</div>
 														<div class="place">
@@ -563,16 +896,54 @@
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
-															<p>I have a strong understanding and experience with Unreal Engine.</p>
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Game Developer</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/game-dev/UnrealIndianaJones.png" alt="Adventurer game" data-image-text="Adventurer game" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/game-dev/UnrealShinoWorld.png" alt="Ninja game" data-image-text="Ninja game" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/game-dev/UnrealDeerRunner.png" alt="Deer game" data-image-text="Deer game" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="short">
+																<div class="job">
+																	<!-- <span class="yellowColor">-Feb 2022 - Present · 2+ yrs</span> -->
+																</div>
+																<div class="place">
+																	<span>-Unreal Engine</span>
+																</div>
+															</div>
+															<div class="badges">
+																<span>C++</span>
+																<span>HLSL</span>
+																<span>MySQL</span>
+															</div>
+															<p>In the two years of my experience with Unreal Engine I've acquired proficiency and strong understanding of the game engine and its technologies.</p>
 															<p>This includes the following skills:</p>
 															<ul>
 																<li>Solid understanding of Unreal Engine's editors.</li>
 																<li>Experience with both the Blueprints visual scripting and the C++ programming.</li>
-																<li>Experience with game physics, AI programming, UI, and multiplayer networking.</li>
+																<li>Experience with game physics, UI, and multiplayer networking.</li>
 																<li>Knowledge of 3D graphics concepts including shaders, materials, lighting, and effects within Unreal Engine.</li>
-																<li>Familiar with animation montages, animation layering, animation blueprints, animation sequences, skeleton retargeting, sockets, etc.</li>
+																<li>Familiarity with animation montages, animation layering, animation blueprints, animation sequences, skeleton retargeting, sockets, etc.</li>
 																<li>Ability to troubleshoot and debug code efficiently, as well as analyze and optimize game performance.</li>
 																<li>Experience with the version control system Git for collaborative development and code management.</li>
+																<li>Proficiency in data storing and retrieval using Data Assets and MySQL Database</li>
 																<li>Familiarity with various game development tools and software such as Blender and Photoshop.</li>
 															</ul>
 														</div>
@@ -582,10 +953,10 @@
 												</div>
 											</li>
 											<li style="margin: 0;">
-												<img class="popup_image" src="img/experience/1.jpg" alt="" />
 												<div class="list_inner">
 													<div class="short">
 														<div class="job">
+															<!-- <span class="yellowColor">-Nov 2019 - Jan 2022 · 2+ yrs</span> -->
 															<h3>Game Developer</h3>
 														</div>
 														<div class="place">
@@ -600,6 +971,41 @@
 													<!-- Modalbox Info Start -->
 													<div class="hidden_details">
 														<div class="descriptions">
+															<div>
+																<div class="elisc_tm_portfolio_title" style="float: none;">
+																	<div class="elisc_tm_title">
+																		<h3>Game Developer</h3>
+																	</div>
+																	<div class="buttons">
+																		<a class="prev_button" href="#" onclick="event.preventDefault();"><span class="svg"><</span></a>
+																		<a class="next_button" href="#" onclick="event.preventDefault();"><span class="svg">></span></a>
+																	</div>
+																</div>
+																<div class="carousel">
+																	<div class="carousel-track">
+																		<div class="carousel-item carousel-active">
+																			<img class="zz_image" src="img/thumbs/game-dev/UnityWholeMap.jpg" alt="Map" data-image-text="Map" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/game-dev/UnitySkills.jpg" alt="Skills" data-image-text="Skills" />
+																		</div>
+																		<div class="carousel-item">
+																			<img class="zz_image" src="img/thumbs/game-dev/UnityCity.png" alt="City" data-image-text="City" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="short">
+																<div class="job">
+																	<!-- <span class="yellowColor">-Nov 2019 - Jan 2022 · 2+ yrs</span> -->
+																</div>
+																<div class="place">
+																	<span>-Unity</span>
+																</div>
+															</div>
+															<div class="badges">
+																<span>C#</span>
+															</div>
 															<p>My journey with Unity has been a transformative adventure in game development. Starting with the basics of scene creation and C# scripting, I progressed to designing captivating levels and characters. Along the way, I gained proficiency in using Git as a version control system, ensuring smooth collaboration and efficient project management.</p>
 															<p>Delving into the intricacies of Unity, I explored how to work with animations, animation layers, animation controllers, materials, the shader graph, the terrain system, and the particle system. Mastering these elements added layers of depth and realism to my projects, enhancing both visual and interactive aspects.</p>
 															<p>Tackling challenges like performance optimization and bug fixing, I developed a resilient problem-solving mindset. Leveraging features like the Unity Asset Store, I streamlined my workflow and accessed a wealth of resources.</p>
@@ -626,30 +1032,16 @@
 								<div class="elisc_tm_portfolio_title">
 									<div class="elisc_tm_title">
 										<span>- Projects</span>
-										<h3>Recent completed works</h3>
+										<h3>Recent works</h3>
 									</div>
 									<div class="buttons">
-										<a class="prev_button" href="#">
-											<svg class="svg" fill="#000000" height="15px" width="16px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-													viewBox="0 0 330 330" xml:space="preserve">
-											<path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001
-												l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996
-												C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"/>
-											</svg>
-										</a>
-										<a class="next_button" href="#">
-											<svg class="svg" fill="#000000" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-												viewBox="0 0 330.002 330.002" xml:space="preserve">
-											<path id="XMLID_103_" d="M233.252,155.997L120.752,6.001c-4.972-6.628-14.372-7.97-21-3c-6.628,4.971-7.971,14.373-3,21
-												l105.75,140.997L96.752,306.001c-4.971,6.627-3.627,16.03,3,21c2.698,2.024,5.856,3.001,8.988,3.001
-												c4.561,0,9.065-2.072,12.012-6.001l112.5-150.004C237.252,168.664,237.252,161.33,233.252,155.997z"/>
-											</svg>
-										</a>
+										<a class="prev_button" href="#"><span class="svg"><</span></a>
+										<a class="next_button" href="#"><span class="svg">></span></a>
 									</div>
 								</div>
 								<div class="portfolio_list">
 									<ul class="owl-carousel gallery_zoom">
-										<li>
+										<!--<li>
 											<div class="list_inner">
 												<div class="image">
 													<img src="img/thumbs/31-36.jpg" alt="" />
@@ -674,54 +1066,42 @@
 													<h3 class="title"><a class="line_effect popup-vimeo" href="img/portfolio/deer-runner-gameplay.mp4">Deer Runner</a></h3>
 												</div>
 											</div>
-										</li>
+										</li>-->
 										<li>
 											<div class="list_inner">
 												<div class="image">
-													<img src="img/thumbs/31-36.jpg" alt="" />
-													<div class="main" data-img-url="img/portfolio/3.jpg"></div>
-													<a class="elisc_tm_full_link soundcloude_link mfp-iframe audio" href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/471954807&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></a>
-												</div>
-												<div class="details">
-													<span class="category"><a href="#">Soundcloud</a></span>
-													<h3 class="title"><a class="line_effect soundcloude_link mfp-iframe audio" href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/471954807&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">Creative Building</a></h3>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="list_inner">
-												<div class="image">
-													<img src="img/thumbs/31-36.jpg" alt="" />
-													<div class="main" data-img-url="img/portfolio/4.jpg"></div>
+													<img src="img/thumbs/isns-main.png" alt="" />
+													<div class="main" data-img-url="img/thumbs/isns-main.png"></div>
 													<a class="elisc_tm_full_link portfolio_popup" href="#"></a>
 												</div>
 												<div class="details">
-													<span class="category"><a href="#">Modalbox</a></span>
-													<h3 class="title"><a class="line_effect portfolio_popup" href="#">Beautiful Boat</a></h3>
+													<span class="category"><a href="#">Shopify App</a></span>
+													<h3 class="title"><a class="line_effect portfolio_popup" href="#">Consentmo</a></h3>
 												</div>
 											</div>
 
 											<!-- Modalbox Info Start -->
 											<div class="hidden_content_portfolio">
 												<div class="popup_details">
+													<img src="img/thumbs/isns-main.jpg" alt="Shinobi World skills preview" style="width: 100%; height: 100%; object-fit: fill;"/>
+													<div class="portfolio_main_title"><span class="category">iSenseLabs</span><h3 class="title">Consentmo</h3></div>
 													<div class="main_details">
 														<div class="textbox">
-															<p>We live in a world where we need to move quickly and iterate on our ideas as flexibly as possible. Building mockups strikes the ideal balance ease of modification. Building mockups strikes the ideal balance ease of modification.</p>
-															<p>Mockups are useful both for the creative phase of the project - for instance when you're trying to figure out your user flows or the proper visual hierarchy - and the production phase when they phase when they will represent the target product. Building mockups strikes the ideal balance ease of modification.</p>
+															<p>Consentmo is a Shopify app designed to display and manage cookie consent bars for online stores. My contribution to the app was almost in all of its functionalities, but mainly it was focused on enhancing the app settings interface, implementing and refining pixel integrations such as Google Ads, Google Analytics, and Meta Pixel, and developing the core logic of the cookie bar to ensure proper consent handling and compliance with privacy regulations.</p>
 														</div>
 														<div class="detailbox">
 															<ul>
 																<li>
-																	<span class="first">Client</span>
-																	<span>Alvaro Morata</span>
+																	<span class="first">Company</span>
+																	<span>iSenseLabs</span>
 																</li>
 																<li>
-																	<span class="first">Category</span>
-																	<span><a href="#">Modalbox</a></span>
+																	<span class="first">Type</span>
+																	<span><a href="#">Shopify App</a></span>
 																</li>
 																<li>
 																	<span class="first">Date</span>
-																	<span>April 10, 2023</span>
+																	<span>Feb 09, 2025</span>
 																</li>
 																<li>
 																	<span class="first">Share</span>
@@ -735,29 +1115,30 @@
 															</ul>
 														</div>
 													</div>
+													
 													<div class="additional_images">
 														<ul>
 															<li>
 																<div class="list_inner">
 																	<div class="my_image">
-																		<img src="img/thumbs/4-2.jpg" alt="" />
-																		<div class="main" data-img-url="img/portfolio/5.jpg"></div>
+																		<img src="img/thumbs/isns-1.png" alt="" />
+																		<div class="main" data-img-url="img/thumbs/isns-1.png"></div>
 																	</div>
 																</div>
 															</li>
 															<li>
 																<div class="list_inner">
 																	<div class="my_image">
-																		<img src="img/thumbs/4-2.jpg" alt="" />
-																		<div class="main" data-img-url="img/portfolio/6.jpg"></div>
+																		<img src="img/thumbs/isns-2.png" alt="" />
+																		<div class="main" data-img-url="img/thumbs/isns-2.png"></div>
 																	</div>
 																</div>
 															</li>
 															<li>
 																<div class="list_inner">
 																	<div class="my_image">
-																		<img src="img/thumbs/4-2.jpg" alt="" />
-																		<div class="main" data-img-url="img/portfolio/7.jpg"></div>
+																		<img src="img/thumbs/isns-3.png" alt="" />
+																		<div class="main" data-img-url="img/thumbs/isns-3.png"></div>
 																	</div>
 																</div>
 															</li>
@@ -766,11 +1147,75 @@
 												</div>
 											</div>
 											<!-- /Modalbox Info Start -->
+										</li>
+										<li>
+											<div class="list_inner">
+												<div class="image">
+													<img src="img/thumbs/pl-2.jpg" alt="" />
+													<div class="main" data-img-url="img/thumbs/pl-2.jpg"></div>
+													<a class="elisc_tm_full_link portfolio_popup" href="#"></a>
+												</div>
+												<div class="details">
+													<span class="category"><a href="#">Shopify App</a></span>
+													<h3 class="title"><a class="line_effect portfolio_popup" href="#">Product Labels</a></h3>
+												</div>
+											</div>
 
+											<!-- Modalbox Info Start -->
+											<div class="hidden_content_portfolio">
+												<div class="popup_details">
+													<img src="img/thumbs/pl-2.jpg" alt="Shinobi World skills preview" style="width: 100%; height: 100%; object-fit: fill;"/>
+													<div class="portfolio_main_title"><span class="category">Shopify App</span><h3 class="title">Product Labels & Badge</h3></div>
+													<div class="main_details">
+														<div class="textbox">
+															<p>I contributed to the development of a Shopify app that enables store owners to add labels and badges to their products for enhanced merchandising and visual appeal. My work included implementing the logic for applying labels, improving and maintaining the app settings interface, and resolving customer-reported issues to ensure optimal performance and a seamless user experience.</p>
+														</div>
+														<div class="detailbox">
+															<ul>
+																<li>
+																	<span class="first">Company</span>
+																	<span>iSenseLabs</span>
+																</li>
+																<li>
+																	<span class="first">Type</span>
+																	<span><a href="#">Shopify App</a></span>
+																</li>
+																<li>
+																	<span class="first">Date</span>
+																	<span>December 04, 2024</span>
+																</li>
+																<li>
+																	<span class="first">Share</span>
+																	<ul class="share">
+																		<li><a href="#"><img class="svg" src="img/svg/social/facebook.svg" alt="" /></a></li>
+																		<li><a href="#"><img class="svg" src="img/svg/social/twitter.svg" alt="" /></a></li>
+																		<li><a href="#"><img class="svg" src="img/svg/social/instagram.svg" alt="" /></a>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
+														</div>
+													</div>
+													
+													<div class="additional_images">
+														<ul>
+															<li>
+																<div class="list_inner">
+																	<div class="my_image">
+																		<img src="img/thumbs/pl-1.jpg" alt="" />
+																		<div class="main" data-img-url="img/thumbs/pl-1.jpg"></div>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<!-- /Modalbox Info Start -->
 										</li>
 									</ul>
 									<div class="elisc_tm_button" data-position="center">
-										<a href="#">View all projects</a>
+										<a href="#contact">Get in touch</a>
 									</div>
 								</div>
 							</div>
@@ -851,14 +1296,14 @@
 										<ul class="owl-carousel owl-theme">
 										<li>
 											<div class="text">
-												<p>The customer service is always 100% top notch. They respond very quickly and there is always someone to help out. They have great communication on their end is what it is. I think it makes them the best at what they do. Would highly recommend them for your privacy needs.</p>
+												<p>The customer service is always 100% top notch. They respond very quickly and there is always someone to help out. They have great communication on their end is what it is.</p>
 											</div>
 											<div class="short">
 												<div class="image">
 													<div class="main" data-img-url="img/testimonials/1.jpg"></div>
 												</div>
 												<div class="detail">
-													<h3>Focal Image Designs</h3>
+													<h3>FID</h3>
 												</div>
 											</div>
 											<p class="job">Administrator at Focal Image Designs</p>
@@ -869,7 +1314,7 @@
 											</div>
 											<div class="short">
 												<div class="image">
-													<div class="main" data-img-url="img/testimonials/2.jpg"></div>
+													<div class="main" data-img-url="img/testimonials/1.jpg"></div>
 												</div>
 												<div class="detail">
 													<h3>Reverie Hats</h3>
@@ -883,7 +1328,7 @@
 											</div>
 											<div class="short">
 												<div class="image">
-													<div class="main" data-img-url="img/testimonials/3.jpg"></div>
+													<div class="main" data-img-url="img/testimonials/1.jpg"></div>
 												</div>
 												<div class="detail">
 													<h3>LionLift</h3>
@@ -944,7 +1389,7 @@
 													</ul>
 												</div>
 												<div class="last">
-													<textarea id="message" placeholder="Write something..."></textarea>
+													<textarea id="message" placeholder="Write your email"></textarea>
 												</div>
 												<div class="elisc_tm_button">
 													<a id="send_message" href="#">Submit now</a>
@@ -992,7 +1437,7 @@
 <!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->	
 <script src="js/plugins.js"></script>
 <script src="js/init.js"></script>
-<script src="js/modal-functionality.js"></script>
+<script src="js/image-popup.js"></script>
 <!-- /SCRIPTS -->
 
 <script>

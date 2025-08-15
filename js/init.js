@@ -35,7 +35,6 @@ jQuery(document).ready(function(){
 	jQuery(window).on('resize', function(){
 		elisc_tm_menu_closer();
 	});
-	
 });
 
 // -----------------------------------------------------
@@ -45,6 +44,51 @@ jQuery(document).ready(function(){
 // -----------------------------------------------------
 // --------------------   MODALBOX    ------------------
 // -----------------------------------------------------
+
+function load_modal_carousel(){
+	let currentIndex = 0;
+	let $track = $('.elisc_tm_modalbox .carousel-track');
+	let $items = $('.elisc_tm_modalbox .carousel-item');
+
+	function updateCarousel() {
+		$items.each((index, element) => {
+			$(element).removeClass('carousel-active');
+		});
+		const currentItem = $items[currentIndex];
+		$(currentItem).addClass('carousel-active');
+
+		const currItemImage = $(currentItem).find('img')[0];
+		const carouselRatio = 1.5;
+		const imgNaturalWidth = currItemImage.naturalWidth;
+		const imgNaturalHeight = currItemImage.naturalHeight;
+		const imgRatio = imgNaturalWidth / imgNaturalHeight;
+
+		if(imgRatio > carouselRatio) {
+			$track.css('height', 600 / imgRatio);
+		} else {
+			$track.css('height', 400);	
+		}
+		const slideWidth = $items.width();
+		
+		$track.css('transform', `translateX(-${slideWidth * currentIndex}px)`);
+	}
+
+	$('.elisc_tm_modalbox .next_button').click(function () {
+		if (currentIndex < $items.length - 1) {
+			currentIndex++;
+			updateCarousel();
+		}
+	});
+
+	$('.elisc_tm_modalbox .prev_button').click(function () {
+		if (currentIndex > 0) {
+			currentIndex--;
+			updateCarousel();
+		}
+	});
+
+	$(window).resize(updateCarousel); // keep slide in view on resize
+}
 
 function elisc_tm_modalbox(){
 	"use strict";
@@ -171,24 +215,6 @@ function elisc_tm_menu_closer(){
 // -------------  EXPERIENCE POPUP  ----------------
 // -------------------------------------------------
 
-function reorder(targetEl) {
-	const els = document.querySelectorAll("[type='radio']");
-	const nItems = els.length;
-	let processedUncheck = 0;
-	for (const el of els) {
-	  const containerEl = el.nextElementSibling;
-	  if (el === targetEl) {//checked radio
-		containerEl.style.setProperty("--w", "100%");
-		containerEl.style.setProperty("--l", "0");
-	  }
-	  else {//unchecked radios
-		containerEl.style.setProperty("--w", `${100/(nItems-1)}%`);
-		containerEl.style.setProperty("--l", `${processedUncheck * 100/(nItems-1)}%`);
-		processedUncheck += 1;
-	  }
-	}
-}
-
 function elisc_tm_experience_popup(){
 	
 	"use strict";
@@ -198,19 +224,20 @@ function elisc_tm_experience_popup(){
 	var closePopup		= modalBox.find('.close');
 	
 	button.on('click',function(){
+		$('html').css('overflow-y', 'hidden');
 		var element = jQuery(this);
 		var parent	= element.closest('.elisc_tm_experience .list ul li');
-		let elImagesDom = '';
-		const elImages = parent[0].querySelectorAll('.popup_image');
-		for(let i = 1; i <= elImages.length; i++) {
-			let elImageSrc = elImages[i - 1].src;
-			if(i === 1) { 
-				elImagesDom += `<input type="radio" id="c1" name="ts" checked="checked" onchange="reorder(this);"><label class="t" for="c1" style="--w: 100%; --l: 0;"><img src="` + elImageSrc + '"></label>';
-			} else {
-				const imageMultiplier = Math.floor(100 / (elImages.length - 1));
-				elImagesDom += `<input type="radio" id="c` + i + `" name="ts" onchange="reorder(this);"><label class="t" for="c` + i + `" style="--w: ` + imageMultiplier + `%; --l: ` + ((i - 2) * imageMultiplier) + `%;"><img src="` + elImageSrc + '"></label>';
-			}
-		}
+		var elImage	= parent.find('.popup_image').attr('src');
+		var elImage2	= parent.find('.popup_image2').attr('src');
+		var elImage3	= parent.find('.popup_image3').attr('src');
+		var elImage4	= parent.find('.popup_image4').attr('src');
+		var elText	= parent.find('.popup_image').attr('data-image-text');
+		var elText2	= parent.find('.popup_image2').attr('data-image-text');
+		var elText3	= parent.find('.popup_image3').attr('data-image-text');
+		var elText4	= parent.find('.popup_image4').attr('data-image-text');
+		var elImage2dom = typeof elImage2 !== 'undefined' ? '<div><img class="grid-item grid-item-3" src="' + elImage2 + '" alt=""><p>' + elText2 + '</p></div>' : '';
+		var elImage3dom = typeof elImage3 !== 'undefined' ? '<div><img class="grid-item grid-item-2" src="' + elImage3 + '" alt=""><p>' + elText3 + '</p></div>' : '';
+		var elImage4dom = typeof elImage4 !== 'undefined' ? '<div><img class="grid-item grid-item-4" src="' + elImage4 + '" alt=""><p>' + elText4 + '</p></div>' : '';
 		var year	= parent.find('.job span').text().slice(1);
 		var job		= parent.find('.job h3').text();
 		var place 	= parent.find('.place span').text().slice(1);
@@ -227,19 +254,13 @@ function elisc_tm_experience_popup(){
 			` + elImage3dom + `
 			` + elImage4dom + `
 		</div>`);*/
-		modalBox.find('.descriptions').prepend(`
-		<div class="modal-container">
-			<div class="w">
-				<div class="ts">
-					` + elImagesDom + `
-				</div>
-			</div>
-		</div>`);
 		elisc_tm_data_images();
 		modalBox.find('.descriptions .top_image').after('<div class="infos"><div class="year"><span>'+year+'</span></div><div class="job"><span>'+place+'</span><h3>'+job+'</h3></div></div>');
+		load_modal_carousel();
 		return false;
 	});
 	closePopup.on('click',function(){
+		$('html').css('overflow-y', 'initial');
 		modalBox.removeClass('opened');
 		modalBox.find('.description_wrap').html('');
 		return false;
@@ -332,9 +353,9 @@ function elisc_tm_modalbox_portfolio(){
 		
 		modalBox.addClass('opened');
 		modalBox.find('.description_wrap').html(details);
-		modalBox.find('.popup_details').prepend('<div class="top_image"><img src="img/thumbs/4-2.jpg" alt="" /><div class="main" data-img-url="'+image+'"></div></div>');
-		modalBox.find('.popup_details .top_image').after('<div class="portfolio_main_title"><span class="category">'+category+'</span><h3 class="title">'+title+'</h3></div>');	
-		elisc_tm_data_images();
+		//modalBox.find('.popup_details').prepend('<div class="top_image"><video width="320" height="240" controls><source src="img/portfolio/deer-runner-gameplay.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="main" data-img-url="'+image+'"></div></div>');
+		//modalBox.find('.popup_details .top_image').after('<div class="portfolio_main_title"><span class="category">'+category+'</span><h3 class="title">'+title+'</h3></div>');	
+		//elisc_tm_data_images();
 		return false;
 	});
 }
