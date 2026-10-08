@@ -1477,6 +1477,7 @@ body::-webkit-scrollbar-thumb{
 	overflow: hidden;
 	border-radius: 4px;
 	margin-bottom: 25px;
+	height: 200px;
 }
 .elisc_tm_portfolio .portfolio_list .image img{
 	min-width: 100%;
